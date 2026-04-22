@@ -3,12 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>+LaCocoTDJ+ | Oficial</title>
+    <title>+LaCocoTDJ+ | Showwoman & DJ Oficial</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@400;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@400;700;900&display=swap');
         
+        :root {
+            --gold: #f1b307;
+        }
+
         body { 
             font-family: 'Montserrat', sans-serif; 
             background: #000; 
@@ -17,7 +21,7 @@
             overflow-x: hidden;
         }
 
-        /* Hero con tu foto de perfil de la piscina */
+        /* Hero principal usando la imagen que acabas de subir a GitHub */
         .hero {
             position: relative;
             height: 100vh;
@@ -25,48 +29,50 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.8)), 
+            /* Usamos el nombre exacto del archivo que tienes en tu repositorio */
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.8)), 
                         url('foto-perfil-mavelpoint-copia-thumb-1750747113118-eeb98ad7-d9d2-470f-91bb-e68084814bef.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
         }
 
-        .gold { color: #f1b307; }
+        .gold-text { color: var(--gold); }
 
-        .logo-text {
+        .logo-main {
             font-family: 'Archivo Black', sans-serif;
-            font-size: clamp(3rem, 12vw, 9rem);
-            line-height: 0.85;
-            letter-spacing: -2px;
+            font-size: clamp(3rem, 15vw, 9rem);
+            line-height: 0.8;
+            letter-spacing: -3px;
             text-transform: uppercase;
+            text-shadow: 0 10px 40px rgba(0,0,0,0.8);
         }
 
-        .btn-booking {
-            background: #f1b307;
+        .btn-gold {
+            background: var(--gold);
             color: black;
-            padding: 1.2rem 3rem;
+            padding: 1.2rem 3.5rem;
             border-radius: 50px;
             font-weight: 900;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             transition: all 0.3s ease;
             display: inline-block;
-            margin-top: 2rem;
+            margin-top: 2.5rem;
             text-decoration: none;
-            box-shadow: 0 10px 30px rgba(241, 179, 7, 0.3);
+            box-shadow: 0 10px 25px rgba(241, 179, 7, 0.4);
         }
 
-        .btn-booking:hover {
-            transform: translateY(-5px);
+        .btn-gold:hover {
+            transform: scale(1.05) translateY(-5px);
             background: #fff;
         }
 
-        .nav {
+        .navbar {
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 25px 40px;
+            padding: 25px 50px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -74,45 +80,72 @@
             background: linear-gradient(to bottom, rgba(0,0,0,0.9), transparent);
             box-sizing: border-box;
         }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 30px;
+            padding: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .navbar { padding: 20px; }
+            .logo-main { font-size: 4.5rem; }
+        }
     </style>
 </head>
 <body>
 
-    <!-- Navegación Superior -->
-    <nav class="nav">
-        <div style="font-family: 'Archivo Black';" class="gold text-2xl italic uppercase tracking-tighter">+LACOCOTDJ+</div>
-        <div class="flex gap-6">
-            <a href="https://instagram.com/LaCocoTDJ" target="_blank" class="gold text-3xl"><i class="fab fa-instagram"></i></a>
-            <a href="https://wa.me/34662300699" target="_blank" class="gold text-3xl"><i class="fab fa-whatsapp"></i></a>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div style="font-family: 'Archivo Black';" class="gold-text text-2xl italic uppercase tracking-tighter">+LACOCOTDJ+</div>
+        <div class="flex gap-6 items-center">
+            <a href="https://instagram.com/LaCocoTDJ" target="_blank" class="gold-text text-3xl hover:text-white transition-colors"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/34662300699" target="_blank" class="gold-text text-3xl hover:text-white transition-colors"><i class="fab fa-whatsapp"></i></a>
         </div>
     </nav>
 
-    <!-- Sección Principal (Hero) -->
+    <!-- Hero Section -->
     <header class="hero">
-        <div class="px-6">
-            <h1 class="logo-text">PURE<br><span class="gold">ENERGY</span></h1>
-            <p class="tracking-[10px] uppercase text-xs md:text-sm font-black mt-8 opacity-80 italic">Showwoman & DJ Set International</p>
-            <a href="https://wa.me/34662300699" target="_blank" class="btn-booking italic">RESERVAR FECHA</a>
+        <div class="px-4">
+            <h1 class="logo-main">PURE<br><span class="gold-text">ENERGY</span></h1>
+            <p class="tracking-[12px] uppercase text-xs md:text-sm font-black mt-8 opacity-90 italic">Showwoman & DJ Set International</p>
+            <a href="https://wa.me/34662300699" target="_blank" class="btn-gold italic">BOOKING NOW</a>
         </div>
     </header>
 
-    <!-- El Show -->
-    <section class="max-w-6xl mx-auto py-24 px-6 grid md:grid-cols-2 gap-16 items-center">
-        <div>
-            <h2 class="text-6xl font-black mb-8 uppercase italic leading-none">THE <span class="gold">SHOW</span></h2>
-            <p class="text-zinc-400 text-xl leading-relaxed">
-                Transformo cada cabina en un escenario vibrante. No solo es poner música, es crear una atmósfera de pura electricidad.
-            </p>
-        </div>
-        <div style="border-radius: 30px; overflow: hidden; border: 1px solid #333;">
-            <img src="WhatsApp Image 2026-04-22 at 11.37.47.jpeg" alt="[Imagen de LaCocoTDJ en el escenario]" class="w-full grayscale hover:grayscale-0 transition duration-700">
+    <!-- Bio Section -->
+    <section class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-16 items-center">
+            <div class="glass-card">
+                <h2 class="text-5xl font-black mb-6 uppercase italic leading-none">THE <span class="gold-text">SHOW</span></h2>
+                <p class="text-zinc-400 text-xl leading-relaxed mb-8">
+                    Cultura musical sin filtros. No solo pincho música, transformo la energía de la pista para que nadie se quede quieto. Mi show es una conexión real con el público.
+                </p>
+                <div class="flex gap-4">
+                    <div class="bg-white/5 p-4 rounded-xl border border-white/10 flex-1 text-center">
+                        <span class="block gold-text font-black text-2xl uppercase">100%</span>
+                        <span class="text-[10px] uppercase tracking-widest text-zinc-500 font-bold">Energía</span>
+                    </div>
+                    <div class="bg-white/5 p-4 rounded-xl border border-white/10 flex-1 text-center">
+                        <span class="block gold-text font-black text-2xl uppercase">Live</span>
+                        <span class="text-[10px] uppercase tracking-widest text-zinc-500 font-bold">Performance</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="relative rounded-[40px] overflow-hidden border border-zinc-800 shadow-2xl">
+                <!-- Imagen secundaria subida a GitHub -->
+                <img src="WhatsApp Image 2026-04-22 at 11.37.47.jpeg" alt="[Imagen de LaCocoTDJ en directo]" class="w-full grayscale hover:grayscale-0 transition duration-700">
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-16 text-center border-t border-zinc-900 bg-black">
-        <div class="gold font-black tracking-[12px] uppercase text-[10px] mb-4 italic">MADRID • IBIZA • WORLDWIDE</div>
-        <p class="text-zinc-800 text-[9px] font-bold uppercase tracking-widest">+LaCocoTDJ+ Official 2026</p>
+    <footer class="py-20 text-center border-t border-zinc-900 bg-black">
+        <div class="gold-text font-black tracking-[15px] uppercase text-[10px] mb-6 italic">MADRID • IBIZA • WORLDWIDE</div>
+        <p class="text-zinc-800 text-[8px] font-bold uppercase tracking-[0.5em]">+LaCocoTDJ+ Official 2026</p>
     </footer>
 
 </body>
