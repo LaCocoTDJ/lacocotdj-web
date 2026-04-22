@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Oficial +LaCocoTDJ+</title>
-    <!-- Tailwind para el diseño -->
+    <!-- Cargamos Tailwind CSS para el diseño -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Iconos y Fuentes -->
+    <!-- Cargamos Font Awesome para los iconos de redes sociales -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@400;700;900&display=swap');
@@ -24,17 +24,19 @@
             letter-spacing: -0.02em;
         }
 
-        /* Hero con la foto de fondo ajustada */
+        /* Hero optimizado: Se ve casi toda la foto, el texto va abajo del todo */
         .hero-section {
             height: 100vh;
-            background: linear-gradient(to right, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 50%, transparent 100%),
+            /* Degradado sutil para asegurar visibilidad del nombre abajo */
+            background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.2) 35%, transparent 100%),
+                        linear-gradient(to right, rgba(0,0,0,0.4) 0%, transparent 100%),
                         url('foto-perfil-mavelpoint-copia-thumb-1750747113118-eeb98ad7-d9d2-470f-91bb-e68084814bef.jpg');
             background-size: cover;
-            background-position: center 10%; 
+            background-position: center top; 
             display: flex;
             flex-direction: column;
             justify-content: flex-end; 
-            padding-bottom: 12vh;
+            padding-bottom: 5vh;
             padding-left: 8%;
         }
 
@@ -43,7 +45,7 @@
             color: #000;
             font-weight: 900;
             transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(255, 204, 0, 0.2);
+            box-shadow: 0 10px 30px rgba(255, 204, 0, 0.3);
         }
 
         .btn-gold:hover {
@@ -51,48 +53,78 @@
             transform: scale(1.05);
         }
 
-        .nav-logo {
+        .top-nav {
             position: fixed;
-            top: 40px;
-            left: 8%;
+            top: 30px;
+            left: 0;
+            width: 100%;
+            padding: 0 8%;
             z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        /* Estilo para que los iconos se vean sobre cualquier fondo */
+        .social-link {
+            background: rgba(0,0,0,0.6);
+            width: 54px;
+            height: 54px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            border: 2px solid rgba(255,204,0,0.5);
+            color: #ffcc00;
+            transition: 0.3s;
+        }
+        
+        .social-link:hover {
+            background: #ffcc00;
+            color: #000;
+            transform: translateY(-3px);
         }
     </style>
 </head>
 <body class="overflow-x-hidden">
 
-    <!-- Navegación Fija con Botón a la Izquierda -->
-    <div class="nav-logo space-y-4">
-        <div class="font-huge text-yellow-400 text-3xl italic uppercase tracking-tighter">+LACOCOTDJ+</div>
-        <a href="https://wa.me/34662300699" target="_blank" class="btn-gold px-8 py-3 rounded-full inline-flex items-center gap-3 text-[10px] tracking-widest uppercase italic cursor-pointer">
-            RESERVAR <i class="fas fa-calendar-alt"></i>
-        </a>
+    <!-- Navbar Superior: Reservar a la izquierda, Redes a la derecha -->
+    <div class="top-nav">
+        <div class="space-y-4">
+            <div class="font-huge text-yellow-400 text-3xl italic uppercase tracking-tighter drop-shadow-2xl">+LACOCOTDJ+</div>
+            <a href="https://wa.me/34662300699" target="_blank" class="btn-gold px-8 py-3 rounded-full inline-flex items-center gap-3 text-[11px] tracking-widest uppercase italic">
+                RESERVAR <i class="fas fa-calendar-alt text-sm"></i>
+            </a>
+        </div>
+        
+        <div class="flex gap-4">
+            <a href="https://www.instagram.com/LaCocoTDJ" target="_blank" class="social-link" title="Instagram">
+                <i class="fab fa-instagram text-2xl"></i>
+            </a>
+            <a href="https://wa.me/34662300699" target="_blank" class="social-link" title="WhatsApp">
+                <i class="fab fa-whatsapp text-2xl"></i>
+            </a>
+        </div>
     </div>
 
-    <!-- Redes arriba derecha -->
-    <div class="fixed top-10 right-10 z-50 flex gap-6 text-yellow-400">
-        <a href="https://www.instagram.com/LaCocoTDJ" target="_blank"><i class="fab fa-instagram text-2xl"></i></a>
-        <a href="https://wa.me/34662300699" target="_blank"><i class="fab fa-whatsapp text-2xl"></i></a>
-    </div>
-
-    <!-- SECCIÓN HERO - TEXTO MÁS PEQUEÑO Y ABAJO -->
+    <!-- SECCIÓN HERO: La foto se ve casi entera, el título está abajo -->
     <header class="hero-section">
-        <div class="max-w-4xl">
-            <p class="text-yellow-400 font-black tracking-[0.3em] uppercase text-[10px] md:text-xs mb-4 italic bg-black/40 inline-block px-2">
+        <div class="max-w-4xl pb-8">
+            <p class="text-yellow-400 font-black tracking-[0.4em] uppercase text-[11px] md:text-sm mb-3 italic">
                 DJ PROFESIONAL + SHOWWOMAN
             </p>
-            <h1 class="font-huge text-[10vw] md:text-[6rem] uppercase italic">
+            <h1 class="font-huge text-[11vw] md:text-[6rem] uppercase italic leading-[0.85]">
                 PURA<br>
                 <span class="text-white">ENERGÍA</span>
             </h1>
         </div>
     </header>
 
-    <!-- SECCIÓN SHOW - AQUÍ HE CORREGIDO EL NOMBRE DE LA FOTO -->
+    <!-- SECCIÓN SHOW -->
     <section class="py-24 px-8 max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center bg-black">
         <div class="order-2 md:order-1">
             <div class="relative rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl">
-                <!-- He puesto el nombre exacto que sale en tu captura para que GitHub la encuentre -->
+                <!-- Imagen del Show (Usando el nombre de archivo que tienes en tu carpeta) -->
                 <img src="WhatsApp Image 2026-04-22 at 11.37.47.jpeg" 
                      alt="[Foto del Show LaCocoTDJ]" 
                      onerror="this.src='https://samavelpointappprodwe.blob.core.windows.net/app-images/artist/ad7b3f08-8202-493e-9b02-bcf06b486c70/cover/thumbnail/portada-mavelpoint-1750747113118-eeb98ad7-d9d2-470f-91bb-e68084814bef.jpg'"
@@ -102,25 +134,25 @@
         <div class="order-1 md:order-2 space-y-6">
             <h2 class="font-huge text-5xl md:text-7xl uppercase italic">EL <span class="text-yellow-400">SHOW</span></h2>
             <p class="text-zinc-400 text-xl leading-relaxed font-light italic">
-                "No solo pincho música, transformo la energía de la pista. Mi show es una conexión real."
+                "No solo pincho música, transformo la energía de la pista. Mi show es una conexión real: bailo, transmito y aseguro el buen rollo que la noche necesita."
             </p>
-            <div class="flex gap-4">
-                <div class="bg-zinc-900/50 p-6 rounded-2xl border border-white/5 flex-1">
-                    <span class="block text-yellow-400 font-black text-2xl uppercase italic">100%</span>
-                    <span class="text-[9px] uppercase tracking-widest opacity-40">Energía</span>
+            <div class="flex gap-4 pt-4">
+                <div class="bg-zinc-900/50 p-6 rounded-2xl border border-white/5 flex-1 text-center">
+                    <span class="block text-yellow-400 font-black text-3xl uppercase italic">100%</span>
+                    <span class="text-[10px] uppercase tracking-widest opacity-40">Energía</span>
                 </div>
                 <div class="bg-zinc-900/50 p-6 rounded-2xl border border-white/5 flex-1 text-center">
-                    <span class="block text-yellow-400 font-black text-2xl uppercase italic">LIVE</span>
-                    <span class="text-[9px] uppercase tracking-widest opacity-40 italic">Performance</span>
+                    <span class="block text-yellow-400 font-black text-3xl uppercase italic">LIVE</span>
+                    <span class="text-[10px] uppercase tracking-widest opacity-40 italic">Performance</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer Final -->
     <footer class="py-16 text-center border-t border-white/5 bg-zinc-950">
-        <div class="text-yellow-400 font-black tracking-[1.5em] text-[10px] uppercase mb-8 italic">MADRID • WORLDWIDE</div>
-        <p class="text-[8px] font-bold text-zinc-800 tracking-[0.5em] uppercase italic">+LACOCOTDJ+ 2026</p>
+        <div class="text-yellow-400 font-black tracking-[1.5em] text-[10px] uppercase mb-8 italic opacity-70">MADRID • WORLDWIDE</div>
+        <p class="text-[9px] font-bold text-zinc-800 tracking-[0.8em] uppercase italic">+LACOCOTDJ+ OFFICIAL SITE 2026</p>
     </footer>
 
 </body>
