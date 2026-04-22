@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Oficial +LaCocoTDJ+</title>
-    <!-- Cargamos Tailwind CSS para el diseño -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Cargamos Font Awesome para los iconos de redes sociales -->
+    <!-- Iconos Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@400;700;900&display=swap');
@@ -20,32 +20,44 @@
 
         .font-huge {
             font-family: 'Archivo Black', sans-serif;
-            line-height: 0.9;
+            line-height: 1;
             letter-spacing: -0.02em;
         }
 
-        /* Hero optimizado: Se ve casi toda la foto, el texto va abajo del todo */
+        /* HERO: Configuración para que se vea la foto tal cual, sin cortes */
         .hero-section {
             height: 100vh;
-            /* Degradado sutil para asegurar visibilidad del nombre abajo */
-            background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.2) 35%, transparent 100%),
-                        linear-gradient(to right, rgba(0,0,0,0.4) 0%, transparent 100%),
+            /* Degradado sutil abajo para que se lea el texto sin tapar el cuerpo */
+            background: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5) 15%, transparent 40%),
                         url('foto-perfil-mavelpoint-copia-thumb-1750747113118-eeb98ad7-d9d2-470f-91bb-e68084814bef.jpg');
             background-size: cover;
-            background-position: center top; 
+            background-position: center 20%; /* Ajuste para que la cabeza se vea perfecta arriba */
             display: flex;
             flex-direction: column;
             justify-content: flex-end; 
             padding-bottom: 5vh;
-            padding-left: 8%;
+            padding-left: 6%;
+            padding-right: 6%;
+        }
+
+        .top-bar {
+            position: absolute;
+            top: 25px;
+            left: 0;
+            width: 100%;
+            padding: 0 6%;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
         }
 
         .btn-gold {
             background: #ffcc00;
             color: #000;
             font-weight: 900;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(255, 204, 0, 0.3);
+            box-shadow: 0 4px 20px rgba(255, 204, 0, 0.4);
+            transition: 0.3s;
         }
 
         .btn-gold:hover {
@@ -53,67 +65,49 @@
             transform: scale(1.05);
         }
 
-        .top-nav {
-            position: fixed;
-            top: 30px;
-            left: 0;
-            width: 100%;
-            padding: 0 8%;
-            z-index: 100;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-        }
-
-        /* Estilo para que los iconos se vean sobre cualquier fondo */
-        .social-link {
-            background: rgba(0,0,0,0.6);
-            width: 54px;
-            height: 54px;
+        .social-circle {
+            background: rgba(0,0,0,0.7);
+            width: 50px;
+            height: 50px;
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 50%;
-            border: 2px solid rgba(255,204,0,0.5);
+            border: 2px solid #ffcc00;
             color: #ffcc00;
-            transition: 0.3s;
-        }
-        
-        .social-link:hover {
-            background: #ffcc00;
-            color: #000;
-            transform: translateY(-3px);
+            margin-left: 10px;
+            backdrop-filter: blur(5px);
         }
     </style>
 </head>
 <body class="overflow-x-hidden">
 
-    <!-- Navbar Superior: Reservar a la izquierda, Redes a la derecha -->
-    <div class="top-nav">
-        <div class="space-y-4">
-            <div class="font-huge text-yellow-400 text-3xl italic uppercase tracking-tighter drop-shadow-2xl">+LACOCOTDJ+</div>
-            <a href="https://wa.me/34662300699" target="_blank" class="btn-gold px-8 py-3 rounded-full inline-flex items-center gap-3 text-[11px] tracking-widest uppercase italic">
-                RESERVAR <i class="fas fa-calendar-alt text-sm"></i>
+    <!-- BARRA SUPERIOR: Nombre, Reservar y Redes -->
+    <div class="top-bar">
+        <div class="flex flex-col gap-3">
+            <div class="font-huge text-yellow-400 text-2xl italic uppercase drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">+LACOCOTDJ+</div>
+            <a href="https://wa.me/34662300699" target="_blank" class="btn-gold px-6 py-2.5 rounded-full inline-flex items-center gap-2 text-[10px] tracking-widest uppercase italic">
+                RESERVAR <i class="fas fa-calendar-alt"></i>
             </a>
         </div>
         
-        <div class="flex gap-4">
-            <a href="https://www.instagram.com/LaCocoTDJ" target="_blank" class="social-link" title="Instagram">
+        <div class="flex">
+            <a href="https://www.instagram.com/LaCocoTDJ" target="_blank" class="social-circle">
                 <i class="fab fa-instagram text-2xl"></i>
             </a>
-            <a href="https://wa.me/34662300699" target="_blank" class="social-link" title="WhatsApp">
+            <a href="https://wa.me/34662300699" target="_blank" class="social-circle">
                 <i class="fab fa-whatsapp text-2xl"></i>
             </a>
         </div>
     </div>
 
-    <!-- SECCIÓN HERO: La foto se ve casi entera, el título está abajo -->
+    <!-- SECCIÓN HERO: FOTO COMPLETA Y TEXTO "PURA ENERGÍA" ABAJO -->
     <header class="hero-section">
-        <div class="max-w-4xl pb-8">
-            <p class="text-yellow-400 font-black tracking-[0.4em] uppercase text-[11px] md:text-sm mb-3 italic">
+        <div class="w-full max-w-4xl">
+            <p class="text-yellow-400 font-black tracking-[0.4em] uppercase text-[10px] mb-2 italic">
                 DJ PROFESIONAL + SHOWWOMAN
             </p>
-            <h1 class="font-huge text-[11vw] md:text-[6rem] uppercase italic leading-[0.85]">
+            <h1 class="font-huge text-[12vw] md:text-[6rem] uppercase italic leading-none">
                 PURA<br>
                 <span class="text-white">ENERGÍA</span>
             </h1>
@@ -121,38 +115,37 @@
     </header>
 
     <!-- SECCIÓN SHOW -->
-    <section class="py-24 px-8 max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center bg-black">
+    <section class="py-24 px-6 max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
         <div class="order-2 md:order-1">
-            <div class="relative rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl">
-                <!-- Imagen del Show (Usando el nombre de archivo que tienes en tu carpeta) -->
+            <div class="rounded-[2.5rem] overflow-hidden shadow-2xl border border-white/10">
                 <img src="WhatsApp Image 2026-04-22 at 11.37.47.jpeg" 
-                     alt="[Foto del Show LaCocoTDJ]" 
+                     alt="[Imagen del Show de LaCocoTDJ]" 
                      onerror="this.src='https://samavelpointappprodwe.blob.core.windows.net/app-images/artist/ad7b3f08-8202-493e-9b02-bcf06b486c70/cover/thumbnail/portada-mavelpoint-1750747113118-eeb98ad7-d9d2-470f-91bb-e68084814bef.jpg'"
                      class="w-full grayscale hover:grayscale-0 transition-all duration-1000">
             </div>
         </div>
-        <div class="order-1 md:order-2 space-y-6">
-            <h2 class="font-huge text-5xl md:text-7xl uppercase italic">EL <span class="text-yellow-400">SHOW</span></h2>
-            <p class="text-zinc-400 text-xl leading-relaxed font-light italic">
-                "No solo pincho música, transformo la energía de la pista. Mi show es una conexión real: bailo, transmito y aseguro el buen rollo que la noche necesita."
+        <div class="order-1 md:order-2 space-y-8">
+            <h2 class="font-huge text-6xl md:text-7xl italic uppercase">EL <span class="text-yellow-400">SHOW</span></h2>
+            <p class="text-zinc-400 text-xl leading-relaxed italic font-light">
+                "No pincho música, creo la energía que falta. Mi show es una conexión real: bailo, transmito y aseguro el buen rollo que la noche necesita."
             </p>
-            <div class="flex gap-4 pt-4">
-                <div class="bg-zinc-900/50 p-6 rounded-2xl border border-white/5 flex-1 text-center">
-                    <span class="block text-yellow-400 font-black text-3xl uppercase italic">100%</span>
-                    <span class="text-[10px] uppercase tracking-widest opacity-40">Energía</span>
+            <div class="flex gap-4">
+                <div class="bg-zinc-900 p-6 rounded-2xl flex-1 text-center border border-white/5 shadow-inner">
+                    <span class="block text-yellow-400 font-black text-3xl italic">100%</span>
+                    <span class="text-[9px] uppercase tracking-widest opacity-40">ENERGÍA</span>
                 </div>
-                <div class="bg-zinc-900/50 p-6 rounded-2xl border border-white/5 flex-1 text-center">
-                    <span class="block text-yellow-400 font-black text-3xl uppercase italic">LIVE</span>
-                    <span class="text-[10px] uppercase tracking-widest opacity-40 italic">Performance</span>
+                <div class="bg-zinc-900 p-6 rounded-2xl flex-1 text-center border border-white/5 shadow-inner">
+                    <span class="block text-yellow-400 font-black text-3xl italic">LIVE</span>
+                    <span class="text-[9px] uppercase tracking-widest opacity-40">SHOW</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer Final -->
-    <footer class="py-16 text-center border-t border-white/5 bg-zinc-950">
-        <div class="text-yellow-400 font-black tracking-[1.5em] text-[10px] uppercase mb-8 italic opacity-70">MADRID • WORLDWIDE</div>
-        <p class="text-[9px] font-bold text-zinc-800 tracking-[0.8em] uppercase italic">+LACOCOTDJ+ OFFICIAL SITE 2026</p>
+    <!-- Footer -->
+    <footer class="py-16 text-center border-t border-white/5 bg-zinc-950/50">
+        <p class="text-zinc-500 text-[10px] tracking-[1.2em] uppercase italic mb-6">MADRID • WORLDWIDE</p>
+        <p class="text-[8px] font-bold tracking-widest text-zinc-800 uppercase">+LACOCOTDJ+ 2026</p>
     </footer>
 
 </body>
