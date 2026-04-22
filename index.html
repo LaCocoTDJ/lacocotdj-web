@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Oficial +LaCocoTDJ+</title>
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Iconos Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@400;700;900&display=swap');
@@ -16,6 +14,7 @@
             color: #fff;
             margin: 0;
             font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
         }
 
         .font-huge {
@@ -24,57 +23,65 @@
             letter-spacing: -0.02em;
         }
 
-        /* HERO A PANTALLA COMPLETA */
+        /* Hero con efecto de doble imagen */
         .hero-section {
             position: relative;
             height: 100vh;
             width: 100%;
-            overflow: hidden;
             display: flex;
-            align-items: flex-end; /* Texto abajo */
-            padding-bottom: 10vh;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: #000;
         }
 
-        /* La foto ocupa todo el fondo */
-        .hero-bg {
+        /* LA FOTO DE FONDO (Grande y desenfocada) */
+        .hero-bg-blur {
             position: absolute;
             inset: 0;
-            z-index: 0;
-        }
-
-        .hero-bg img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            /* ESTO ES LO IMPORTANTE: Enfoca la parte superior para que se vea tu cara */
-            object-position: center 15%; 
-        }
-
-        /* Capa de protección para que se lea el texto sin taparte a ti */
-        .hero-overlay {
-            position: absolute;
-            inset: 0;
-            /* Degradado muy sutil arriba, más fuerte abajo donde va el texto */
-            background: linear-gradient(to bottom, 
-                rgba(0,0,0,0.3) 0%, 
-                transparent 40%, 
-                rgba(0,0,0,0.8) 100%);
+            background: url('foto-perfil-mavelpoint-copia-thumb-1750747113118-eeb98ad7-d9d2-470f-91bb-e68084814bef.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: blur(20px) brightness(0.4) grayscale(0.3);
+            transform: scale(1.1); /* Evita bordes blancos por el blur */
             z-index: 1;
         }
 
-        .hero-content {
+        /* LA FOTO SUPERPUESTA (Nítida y centrada) */
+        .profile-container {
             position: relative;
-            z-index: 10;
+            z-index: 5;
+            height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .profile-img-overlay {
+            max-height: 100%;
+            max-width: 90vw;
+            object-fit: contain;
+            filter: drop-shadow(0 20px 50px rgba(0,0,0,0.8));
+            border-radius: 20px; /* Un toque sutil */
+        }
+
+        /* Contenido de texto */
+        .hero-content {
+            position: absolute;
+            bottom: 8%;
+            left: 0;
             width: 100%;
+            z-index: 10;
             padding: 0 8%;
+            pointer-events: none;
         }
 
         .top-bar {
             position: absolute;
-            top: 0;
+            top: 25px;
             left: 0;
             width: 100%;
-            padding: 30px 8%;
+            padding: 0 8%;
             z-index: 100;
             display: flex;
             justify-content: space-between;
@@ -89,7 +96,7 @@
         }
 
         .social-circle {
-            background: rgba(0,0,0,0.3);
+            background: rgba(0, 0, 0, 0.4);
             width: 45px;
             height: 45px;
             display: flex;
@@ -99,69 +106,74 @@
             border: 1px solid rgba(255, 204, 0, 0.5);
             color: #ffcc00;
             margin-left: 10px;
-            backdrop-filter: blur(8px);
+            backdrop-filter: blur(5px);
         }
 
         .shadow-hard {
-            text-shadow: 0 4px 20px rgba(0,0,0,0.9);
+            text-shadow: 0 4px 15px rgba(0,0,0,1);
         }
 
-        /* Animación suave para el título */
-        .fade-up {
-            animation: fadeUp 1s ease-out forwards;
+        .fade-in {
+            animation: fadeIn 1.2s ease-out forwards;
         }
 
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(30px); }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
-<body class="overflow-x-hidden">
+<body>
 
     <!-- BARRA SUPERIOR -->
     <div class="top-bar">
         <div class="flex flex-col gap-3">
-            <div class="font-huge text-yellow-400 text-2xl italic uppercase tracking-tighter shadow-hard">+LACOCOTDJ+</div>
-            <a href="https://wa.me/34662300699" target="_blank" class="btn-gold px-6 py-2.5 rounded-full inline-flex items-center gap-2 text-[10px] tracking-widest uppercase italic transition-transform hover:scale-105">
+            <div class="font-huge text-yellow-400 text-2xl italic uppercase drop-shadow-lg">+LACOCOTDJ+</div>
+            <a href="https://wa.me/34662300699" target="_blank" class="btn-gold px-6 py-2.5 rounded-full inline-flex items-center gap-2 text-[10px] tracking-widest uppercase italic">
                 RESERVAR <i class="fas fa-calendar-alt"></i>
             </a>
         </div>
         
         <div class="flex">
-            <a href="https://www.instagram.com/LaCocoTDJ" target="_blank" class="social-circle hover:bg-yellow-400 hover:text-black transition-all">
+            <a href="https://www.instagram.com/LaCocoTDJ" target="_blank" class="social-circle">
                 <i class="fab fa-instagram text-xl"></i>
             </a>
-            <a href="https://wa.me/34662300699" target="_blank" class="social-circle hover:bg-yellow-400 hover:text-black transition-all">
+            <a href="https://wa.me/34662300699" target="_blank" class="social-circle">
                 <i class="fab fa-whatsapp text-xl"></i>
             </a>
         </div>
     </div>
 
-    <!-- SECCIÓN HERO (IMPACTO TOTAL) -->
+    <!-- SECCIÓN HERO CON DOBLE IMAGEN -->
     <header class="hero-section">
-        <div class="hero-bg">
-            <img src="foto-perfil-mavelpoint-copia-thumb-1750747113118-eeb98ad7-d9d2-470f-91bb-e68084814bef.jpg" alt="[Imagen de LaCocoTDJ Oficial]">
+        <!-- Capa 1: Fondo desenfocado -->
+        <div class="hero-bg-blur"></div>
+
+        <!-- Capa 2: Foto nítida superpuesta -->
+        <div class="profile-container fade-in">
+            <img src="foto-perfil-mavelpoint-copia-thumb-1750747113118-eeb98ad7-d9d2-470f-91bb-e68084814bef.jpg" 
+                 alt="[Imagen de LaCocoTDJ superpuesta en el centro]" 
+                 class="profile-img-overlay">
         </div>
-        <div class="hero-overlay"></div>
-        
-        <div class="hero-content fade-up">
+
+        <!-- Capa 3: Texto -->
+        <div class="hero-content">
             <p class="text-yellow-400 font-black tracking-[0.5em] uppercase text-[10px] mb-2 italic shadow-hard">
                 DJ PROFESIONAL + SHOWWOMAN
             </p>
-            <h1 class="font-huge text-[16vw] md:text-[10rem] uppercase italic leading-[0.8] shadow-hard">
-                PURA<br>
+            <h1 class="font-huge text-[15vw] md:text-[9rem] uppercase italic leading-none shadow-hard">
+                <span class="text-yellow-400">PURA</span><br>
                 <span class="text-white">ENERGÍA</span>
             </h1>
         </div>
     </header>
 
     <!-- SECCIÓN EL SHOW -->
-    <section class="py-24 px-8 max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center bg-black">
+    <section class="py-24 px-8 max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
         <div class="order-2 md:order-1">
-            <div class="rounded-[3rem] overflow-hidden border border-white/5 shadow-2xl">
+            <div class="rounded-[3rem] overflow-hidden border border-white/10 shadow-2xl">
                 <img src="WhatsApp Image 2026-04-22 at 11.37.47.jpeg" 
-                     alt="[Imagen de LaCocoTDJ en plena actuación]" 
+                     alt="[Imagen del show de LaCocoTDJ]" 
                      onerror="this.src='https://samavelpointappprodwe.blob.core.windows.net/app-images/artist/ad7b3f08-8202-493e-9b02-bcf06b486c70/cover/thumbnail/portada-mavelpoint-1750747113118-eeb98ad7-d9d2-470f-91bb-e68084814bef.jpg'"
                      class="w-full grayscale hover:grayscale-0 transition-all duration-1000">
             </div>
@@ -171,28 +183,23 @@
             <p class="text-zinc-400 text-xl leading-relaxed italic font-light">
                 "No pincho música, creo la energía que falta. Mi show es una conexión real: bailo, transmito y aseguro el buen rollo que la noche necesita."
             </p>
-            <div class="flex gap-6">
-                <div class="bg-zinc-900/40 p-6 rounded-3xl flex-1 text-center border border-white/5">
+            <div class="flex gap-4">
+                <div class="bg-zinc-900/50 p-6 rounded-3xl flex-1 text-center border border-white/5">
                     <span class="block text-yellow-400 font-black text-3xl italic">100%</span>
-                    <span class="text-[9px] uppercase tracking-[0.3em] opacity-40 font-bold italic">ACTITUD</span>
+                    <span class="text-[9px] uppercase tracking-widest opacity-40 font-bold">ENERGÍA</span>
                 </div>
-                <div class="bg-zinc-900/40 p-6 rounded-3xl flex-1 text-center border border-white/5">
+                <div class="bg-zinc-900/50 p-6 rounded-3xl flex-1 text-center border border-white/5">
                     <span class="block text-yellow-400 font-black text-3xl italic">LIVE</span>
-                    <span class="text-[9px] uppercase tracking-[0.3em] opacity-40 font-bold italic">DIRECTO</span>
+                    <span class="text-[9px] uppercase tracking-widest opacity-40 font-bold">SHOW</span>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- PIE DE PÁGINA -->
-    <footer class="py-20 text-center bg-black border-t border-white/5">
-        <div class="mb-10 flex justify-center gap-8 text-zinc-500">
-            <a href="https://www.youtube.com/@LaCocoTDJ" target="_blank" class="hover:text-yellow-400 transition-colors"><i class="fab fa-youtube text-2xl"></i></a>
-            <a href="https://www.mixcloud.com/LaCocoTDJ/" target="_blank" class="hover:text-yellow-400 transition-colors"><i class="fab fa-mixcloud text-2xl"></i></a>
-            <a href="https://www.instagram.com/LaCocoTDJ" target="_blank" class="hover:text-yellow-400 transition-colors"><i class="fab fa-instagram text-2xl"></i></a>
-        </div>
-        <p class="text-zinc-500 text-[11px] tracking-[1.5em] uppercase italic mb-4">MADRID • WORLDWIDE</p>
-        <p class="text-[9px] font-bold tracking-widest text-zinc-800 uppercase">+LACOCOTDJ+ 2026</p>
+    <footer class="py-20 text-center border-t border-white/5 bg-black">
+        <p class="text-zinc-500 text-[10px] tracking-[1.5em] uppercase italic mb-4">MADRID • WORLDWIDE</p>
+        <p class="text-[8px] font-bold tracking-widest text-zinc-800 uppercase">+LACOCOTDJ+ 2026</p>
     </footer>
 
 </body>
